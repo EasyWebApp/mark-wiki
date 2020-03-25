@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "module": "ESNext",
+        "moduleResolution": "Node",
+        "resolveJsonModule": true,
+        "experimentalDecorators": true,
+        "jsx": "react",
+        "jsxFactory": "createCell",
+        "target": "ES5",
+        "lib": ["ES2019", "DOM"]
+    },
+    "include": ["source/**/*"]
+}

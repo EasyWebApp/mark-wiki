@@ -1,0 +1,16 @@
+{
+    "channels": [
+        { "title": "World" },
+        { "title": "U.S." },
+        { "title": "Technology" },
+        { "title": "Design" },
+        { "title": "Culture" },
+        { "title": "Business" },
+        { "title": "Politics" },
+        { "title": "Opinion" },
+        { "title": "Science" },
+        { "title": "Health" },
+        { "title": "Style" },
+        { "title": "Travel" }
+    ]
+}

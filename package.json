@@ -1,0 +1,66 @@
+{
+    "name": "mark-wiki",
+    "version": "0.4.0",
+    "license": "AGPL-3.0",
+    "author": "shiy2008@gmail.com",
+    "description": "Web-site scaffold based on BootCell, MarkCell & Parcel",
+    "keywords": [
+        "website",
+        "CMS",
+        "blog",
+        "scaffold",
+        "bootstrap",
+        "web-cell",
+        "markdown",
+        "typescript",
+        "parcel"
+    ],
+    "homepage": "https://web-cell.dev/mark-wiki/",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/EasyWebApp/mark-wiki.git"
+    },
+    "bugs": {
+        "url": "https://github.com/EasyWebApp/mark-wiki/issues"
+    },
+    "dependencies": {
+        "boot-cell": "^1.0.0-rc.1",
+        "classnames": "^2.2.6",
+        "web-cell": "^2.0.0-rc.20"
+    },
+    "devDependencies": {
+        "@types/node": "^13.9.3",
+        "husky": "^4.2.3",
+        "less": "^3.11.1",
+        "lint-staged": "^10.0.8",
+        "mark-cell": "^0.4.1",
+        "parcel-bundler": "^1.12.4",
+        "prettier": "^2.0.2"
+    },
+    "prettier": {
+        "singleQuote": true,
+        "trailingComma": "none",
+        "arrowParens": "avoid",
+        "tabWidth": 4
+    },
+    "lint-staged": {
+        "*.{css,less,md,mdx,json,ts,tsx}": [
+            "prettier --write"
+        ]
+    },
+    "scripts": {
+        "test": "lint-staged",
+        "pack-mdx": "mark-cell document/source -p web-cell -f createCell -l source/layout -s 1",
+        "boot-html": "parcel document/public/index.html --open",
+        "pack-html": "parcel build document/public/index.html --public-url .",
+        "clean": "rm -rf document/dist/ document/public dist/",
+        "start": "npm run clean  &&  npm run pack-mdx  &&  npm run boot-html",
+        "build": "npm run clean  &&  npm run pack-mdx  &&  npm run pack-html"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm test",
+            "pre-push": "npm run build"
+        }
+    }
+}

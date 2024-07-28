@@ -10,23 +10,13 @@ import RemarkFrontmatter from 'remark-frontmatter';
 import RemarkGFM from 'remark-gfm';
 import RemarkMdxFrontmatter from 'remark-mdx-frontmatter';
 
+import './polyfill';
 import { DOMRenderer } from 'dom-renderer';
-import { Window } from 'happy-dom';
 
 const anchorPath = currentModulePath(),
     MarkdownFilePattern = /\.(mdx?|markdown)$/i,
-    window = new Window(),
     renderer = new DOMRenderer();
 var TSConfig: TSConfigJSON = {};
-
-for (const key of [
-    'Text',
-    'Element',
-    'HTMLElement',
-    'HTMLUnknownElement',
-    'document'
-])
-    Reflect.set(globalThis, key, window[key]);
 
 (async () => {
     for (const filePath of findUp(anchorPath))
